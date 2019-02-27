@@ -16,8 +16,6 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), RecipeContract.View {
 
-
-
     private val recipeAdapter = RecipeAdapter()
 
     @Inject
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity(), RecipeContract.View {
 
 
         btnShowRecipe.setOnClickListener {
-            recipePresenter.getRecipe(etIngredients.text.toString(),etDishName.text.toString())
+            recipePresenter.getRecipe()
         }
 
 

@@ -14,12 +14,13 @@ class RecipePresenter(
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun getRecipe(ingredients:String,title:String) {
+    override fun getRecipe() {
         compositeDisposable.add(
-            recipeService.getRecipe(ingredients,title)
+            recipeService.getRecipe()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ view.showResults(it?.response ?: emptyList()) },
+
+                .subscribe({ view.showResults(it.results) },
                     { failure -> view.showError(failure?.message ?: "An unknown error happened") })
         )
     }

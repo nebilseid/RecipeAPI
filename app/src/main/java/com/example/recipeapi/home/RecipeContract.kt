@@ -10,6 +10,6 @@ interface RecipeContract {
     }
 
     interface Presenter {
-        fun getRecipe(ingredients:String,title: String)
+        fun getRecipe()
     }
 }

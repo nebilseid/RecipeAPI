@@ -10,8 +10,7 @@ import retrofit2.http.Query
 
 interface RecipeService {
 @GET(RECIPE_ENDPOINT)
-fun getRecipe(
-    @Query("ingredients") ingredients: String,
-    @Query("title") title: String): Observable<RecipeResponse>
+fun getRecipe(): Observable<RecipeResponse>
+
 
 }
