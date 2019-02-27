@@ -1,5 +1,6 @@
 package com.example.recipeapi.home
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -14,6 +15,9 @@ import com.example.recipeapi.home.di.RecipeModule
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
+
+
+
 class MainActivity : AppCompatActivity(), RecipeContract.View {
 
     private val recipeAdapter = RecipeAdapter()
@@ -23,7 +27,8 @@ class MainActivity : AppCompatActivity(), RecipeContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(com.example.recipeapi.
+            R.layout.activity_main)
 
         
         DaggerRecipeComponent.builder()
@@ -35,6 +40,7 @@ class MainActivity : AppCompatActivity(), RecipeContract.View {
         rvRecipe.layoutManager = LinearLayoutManager(this)
         rvRecipe.adapter = recipeAdapter
 
+        val intent = Intent(this, RecipeAdapter::class.java)
 
 
         btnShowRecipe.setOnClickListener {

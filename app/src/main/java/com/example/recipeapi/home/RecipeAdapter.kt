@@ -1,5 +1,6 @@
 package com.example.recipeapi.home
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,14 @@ import com.example.recipeapi.R
 import com.example.recipeapi.RecepeAPI.Model.RecipeResponse
 
 import com.example.recipeapi.RecepeAPI.Model.Response
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recipe_item.view.*
 
 
 class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     private val data = arrayListOf<Response>()
+
 
     fun setData (items: List<Response>){
         data.clear()
@@ -42,6 +45,8 @@ class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
         fun bind (response: Response){
             view.tvTitle.text = response.title
             view.tvIngredients.text = response.ingredients
+
+            Picasso.get().load(response.thumbnail).into(view.ivRecipe)
 
         }
     }}
